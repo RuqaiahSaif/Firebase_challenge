@@ -24,30 +24,24 @@ class AddData : DialogFragment() {
 
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var collectionRefrence: CollectionReference = db.collection("notes")
-    lateinit var title:EditText
-    lateinit var content:EditText
-    lateinit var cancel:Button
-    lateinit var save: Button
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_add_data, container, false)
-        title = view.findViewById(R.id.note_title) as EditText
-         content = view.findViewById(R.id.note_text) as EditText
-        save = view.findViewById(R.id.save) as Button
-        cancel = view.findViewById(R.id.cancel) as Button
-        save.setOnClickListener {
-            add()
-            dismiss()
+    lateinit var title: EditText
+    lateinit var content: EditText
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+        val view = activity?.layoutInflater?.inflate(R.layout.fragment_add_data, null)
+        title = view?.findViewById(R.id.note_title) as EditText
+        content = view?.findViewById(R.id.note_text) as EditText
+
+
+        return AlertDialog.Builder(requireContext(), R.style.ThemeOverlay_AppCompat_Dialog_Alert)
+            .setView(view)
+            .setPositiveButton("Add") { dialog, _ ->
+this.add()
             }
-        cancel.setOnClickListener {
-            dismiss()
-        }
-
-        return view
-
+            .setNegativeButton("Cancel")
+            { dialog, _ ->
+                dialog.cancel()
+            }.create()
     }
 
     companion object {
@@ -58,7 +52,7 @@ class AddData : DialogFragment() {
         var note = Note(title.text.toString(), content.text.toString())
         db.collection("notes").add(note).addOnCompleteListener {
             if (it.isSuccessful) {
-                Toast.makeText(context, "added successfully", Toast.LENGTH_LONG).show()
+             //   Toast.makeText(context, "added successfully", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(context, "failde to add ${it.exception}", Toast.LENGTH_LONG)
                     .show()

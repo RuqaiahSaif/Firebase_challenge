@@ -7,21 +7,32 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Sign_phone">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sign with your number"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="20dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/phone_layout"
         android:orientation="vertical">
+
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="phone number"
+    android:hint="Enter your phone number"
     android:id="@+id/phone_num"
+
     />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sign_num"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
        android:text="go to code"
         />
        </LinearLayout>
@@ -41,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/otpbtn"
+            android:background="@color/colorPrimary"
             android:text="signup"
             />
     </LinearLayout>

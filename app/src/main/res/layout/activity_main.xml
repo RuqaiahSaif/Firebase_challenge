@@ -10,7 +10,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
+        android:layout_margin="20dp"
         android:text="Already have an acount"/>
     <EditText
      android:layout_width="match_parent"
@@ -26,6 +28,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:id="@+id/login"
         android:text="login"
         />
@@ -33,6 +36,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
         android:text="New user? Sign up now"/>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -42,10 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
            android:text="google account"
+            android:background="@color/colorPrimary"
             android:id="@+id/sign_email"></Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:text="phone number"
             android:id="@+id/sign_phone"></Button>
     </LinearLayout>

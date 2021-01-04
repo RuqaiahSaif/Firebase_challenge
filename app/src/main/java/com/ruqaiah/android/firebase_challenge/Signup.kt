@@ -10,15 +10,19 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class Signup : AppCompatActivity() {
+    lateinit var user_name: EditText
     lateinit var user_email: EditText
     lateinit var user_pass: EditText
+    lateinit var confrim_pass: EditText
     lateinit var sign: Button
     lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+        user_name = findViewById(R.id.username)
         user_email = findViewById(R.id.useremail)
         user_pass = findViewById(R.id.userpassward)
+        confrim_pass = findViewById(R.id.confrimpassward)
         sign = findViewById(R.id.signup)
         sign.setOnClickListener {
             register()
@@ -27,8 +31,10 @@ class Signup : AppCompatActivity() {
 
     fun register() {
         auth = FirebaseAuth.getInstance()
-        if( user_pass.text.toString().length<6){
+        if( user_pass.text.toString().length < 6 || user_name.text.toString().length < 6){
             Toast.makeText(this, "passward must to be more than 6 ", Toast.LENGTH_LONG).show()
+        }else if( user_pass.text.toString() != confrim_pass.text.toString()){
+            Toast.makeText(this, "passward is not match ,try again ", Toast.LENGTH_LONG).show()
         }
         auth.createUserWithEmailAndPassword(user_email.text.toString(), user_pass.text.toString())
             .addOnCompleteListener(this) {

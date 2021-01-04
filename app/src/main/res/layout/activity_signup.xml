@@ -7,6 +7,19 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Signup">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
+        />
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Enter your name"
+        android:id="@+id/username">
+    </EditText>
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -19,11 +32,18 @@
         android:hint="Enter your passward"
         android:id="@+id/userpassward">
     </EditText>
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Enter your passward"
+        android:id="@+id/confrimpassward">
+    </EditText>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="signup"
         android:id="@+id/signup"
+        android:background="@color/colorPrimary"
         android:layout_gravity="center"
         />
 
